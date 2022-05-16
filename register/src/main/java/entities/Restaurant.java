@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "restaurant")
+@Table
 public class Restaurant extends PanacheEntityBase {
 
     @Id
@@ -20,6 +20,9 @@ public class Restaurant extends PanacheEntityBase {
     public String cnpj;
 
     public String name;
+
+    @ManyToOne
+    public Localization localization;
 
     @CreationTimestamp
     public Date creationDate;
