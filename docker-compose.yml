@@ -1,0 +1,10 @@
+version: "3.9"
+  services:
+    postgres_register:
+      container_name: postgres_register
+      image: postgres:latest
+      environment:
+        POSTGRES_USER: register
+        POSTGRES_PASSWORD: register
+      ports:
+        - '5432:5432'
