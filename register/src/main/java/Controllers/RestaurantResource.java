@@ -2,10 +2,8 @@ package Controllers;
 
 import entities.Restaurant;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.transaction.Transactional;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -15,7 +13,14 @@ import java.util.List;
 public class RestaurantResource {
 
     @GET
-    public List<Restaurant> restaurants() {
+    public List<Restaurant> search() {
         return Restaurant.listAll();
     }
+
+    @POST
+    @Transactional
+    public void add(Restaurant dto) {
+        dto.persist();
+    }
+
 }
