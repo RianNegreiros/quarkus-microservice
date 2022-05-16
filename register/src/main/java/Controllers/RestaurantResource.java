@@ -1,7 +1,6 @@
 package Controllers;
 
 import entities.Restaurant;
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -36,5 +35,16 @@ public class RestaurantResource {
         Restaurant restaurant = restaurantOp.get();
         restaurant.name = dto.name;
         restaurant.persist();
+    }
+
+    @DELETE
+    @Path("{id}")
+    @Transactional
+    public void delete(@PathParam("id") Long id) {
+        Optional<Restaurant> restaurantOp = Restaurant.findByIdOptional(id);
+
+        restaurantOp.ifPresentOrElse(Restaurant::delete, () -> {
+            throw new NotFoundException();
+        });
     }
 }
