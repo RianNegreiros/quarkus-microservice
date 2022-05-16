@@ -5,6 +5,7 @@ import entities.Restaurant;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,8 +21,9 @@ public class RestaurantResource {
 
     @POST
     @Transactional
-    public void add(Restaurant dto) {
+    public Response add(Restaurant dto) {
         dto.persist();
+        return Response.status(Response.Status.CREATED).build();
     }
 
     @PUT
