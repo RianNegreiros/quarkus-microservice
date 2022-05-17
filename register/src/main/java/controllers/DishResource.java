@@ -1,7 +1,6 @@
 package controllers;
 
 import entities.Dish;
-import entities.Restaurant;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
