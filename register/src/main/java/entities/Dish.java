@@ -1,17 +1,12 @@
 package entities;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table
-public class Dish extends PanacheEntityBase {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+public class Dish extends PanacheEntity {
 
     public String name;
 

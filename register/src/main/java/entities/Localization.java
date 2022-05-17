@@ -1,16 +1,11 @@
 package entities;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.*;
 
 @Entity
-@Table
-public class Localization extends PanacheEntityBase {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+public class Localization extends PanacheEntity {
 
     public Double latitude;
 
