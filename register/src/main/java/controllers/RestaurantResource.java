@@ -22,7 +22,11 @@ public class RestaurantResource {
     @POST
     @Transactional
     public Response add(Restaurant dto) {
-        dto.persist();
+        Restaurant restaurant = new Restaurant();
+        restaurant.name = dto.name;
+        restaurant.owner = dto.owner;
+        restaurant.cnpj = dto.cnpj;
+        restaurant.persist();
         return Response.status(Response.Status.CREATED).build();
     }
 
