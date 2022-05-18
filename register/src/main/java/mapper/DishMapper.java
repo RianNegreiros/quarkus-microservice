@@ -9,5 +9,5 @@ import org.mapstruct.factory.Mappers;
 public interface DishMapper {
     DishMapper INSTANCE = Mappers.getMapper(DishMapper.class);
 
-    Dish toRestaurant(DishDTO dto);
+    Dish toDish(DishDTO dto);
 }
