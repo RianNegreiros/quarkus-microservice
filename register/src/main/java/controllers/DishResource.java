@@ -10,12 +10,13 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Optional;
 
+@Path("/dishes")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class DishResource {
 
     @GET
-    @Path("{idRestaurant}/dishes")
+    @Path("/{idRestaurant}/dishes")
     public List<Dish> search(@PathParam("idRestaurant") Long idRestaurant) {
         Optional<Restaurant> restaurantOp = Restaurant.findByIdOptional(idRestaurant);
         if (restaurantOp.isEmpty()) {
@@ -25,7 +26,7 @@ public class DishResource {
     }
 
     @POST
-    @Path("{idRestaurant}/dishes")
+    @Path("/{idRestaurant}/dish")
     @Transactional
     public Response add(@PathParam("idRestaurant") Long idRestaurant, Dish dto) {
         Optional<Restaurant> restaurantOp = Restaurant.findByIdOptional(idRestaurant);
@@ -42,7 +43,7 @@ public class DishResource {
     }
 
     @PUT
-    @Path("{idRestaurant}/dishes/{id}")
+    @Path("/{idRestaurant}/dish/{id}")
     @Transactional
     public void update(@PathParam("idRestaurant") Long idRestaurant, @PathParam("id") Long id, Dish dto) {
         Optional<Restaurant> restaurantOp = Restaurant.findByIdOptional(idRestaurant);
@@ -60,7 +61,7 @@ public class DishResource {
     }
 
     @DELETE
-    @Path("{idRestaurant}/dishes/{id}")
+    @Path("/{idRestaurant}/dish/{id}")
     @Transactional
     public void delete(@PathParam("idRestaurant") Long idRestaurant, @PathParam("id") Long id) {
         Optional<Restaurant> restaurantOp = Restaurant.findByIdOptional(idRestaurant);
