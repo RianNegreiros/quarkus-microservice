@@ -1,6 +1,6 @@
 package mapper;
 
-import dto.AddRestaurantDTO;
+import dto.RestaurantDTO;
 import entities.Restaurant;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -9,5 +9,5 @@ import org.mapstruct.factory.Mappers;
 public interface RestaurantMapper {
     RestaurantMapper INSTANCE = Mappers.getMapper(RestaurantMapper.class);
 
-    Restaurant toRestaurant(AddRestaurantDTO dto);
+    Restaurant toRestaurant(RestaurantDTO dto);
 }

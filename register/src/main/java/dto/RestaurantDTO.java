@@ -1,6 +1,6 @@
 package dto;
 
-public class AddRestaurantDTO {
+public class RestaurantDTO {
 
     public String owner;
 
