@@ -8,3 +8,11 @@ services:
       POSTGRES_PASSWORD: register
     ports:
       - '5432:5432'
+  keycloak_delivery:
+    container_name: keycloak_delivery
+    image: jboss/keycloak:latest
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      - "8180:8080"
