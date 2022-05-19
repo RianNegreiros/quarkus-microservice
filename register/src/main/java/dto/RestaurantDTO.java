@@ -1,6 +1,7 @@
 package dto;
 
 import entities.Restaurant;
+import infra.dto.DTO;
 import infra.dto.ValidDTO;
 
 import javax.validation.ConstraintValidatorContext;
@@ -9,7 +10,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @ValidDTO
-public class RestaurantDTO {
+public class RestaurantDTO implements DTO {
 
     @NotBlank
     public String owner;
@@ -23,6 +24,7 @@ public class RestaurantDTO {
 
     public LocalizationDTO localization;
 
+    @Override
     public boolean isValid(ConstraintValidatorContext constraintValidatorContext) {
         constraintValidatorContext.disableDefaultConstraintViolation();
         if(Restaurant.find("cnpj", cnpj).count() > 0) {
