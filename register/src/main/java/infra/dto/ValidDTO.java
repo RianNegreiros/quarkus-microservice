@@ -12,6 +12,8 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = { ValidDTOValidator.class })
 public @interface ValidDTO {
 
+    String message() default "{infra.ValidDTO.message}";
+
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
