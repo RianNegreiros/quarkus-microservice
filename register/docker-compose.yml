@@ -29,3 +29,11 @@ services:
       - "14268:14268"
       - "14269:14269"
       - "9411:9411"
+  prometheus_delivery:
+    container_name: prometheus_delivery
+    image: prometheus-delivery
+    network_mode: "host"
+  grafana_delivery:
+    container_name: grafana_delivery
+    image: grafana/grafana:latest
+    network_mode: "host"
