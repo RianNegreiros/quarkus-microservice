@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  postgres_register:
+    container_name: postgres_register
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: register
+      POSTGRES_PASSWORD: register
+    ports:
+      - '5432:5432'
+  keycloak_delivery:
+    container_name: keycloak_delivery
+    image: jboss/keycloak:latest
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      - "8180:8080"
+  jaeger_delivery:
+    container_name: jaeger_delivery
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "5775:5775/udp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "14250:14250"
+      - "14268:14268"
+      - "14269:14269"
+      - "9411:9411"
+  prometheus_delivery:
+    container_name: prometheus_delivery
+    image: prometheus-delivery
+    network_mode: "host"
+  grafana_delivery:
+    container_name: grafana_delivery
+    image: grafana/grafana:latest
+    network_mode: "host"
