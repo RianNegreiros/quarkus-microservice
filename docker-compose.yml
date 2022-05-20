@@ -8,6 +8,14 @@ services:
       POSTGRES_PASSWORD: register
     ports:
       - '5432:5432'
+  postgres_marketplace:
+    container_name: postgres_marketplace
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: marketplace
+      POSTGRES_PASSWORD: marketplace
+    ports:
+      - '5433:5432'
   keycloak_delivery:
     container_name: keycloak_delivery
     image: jboss/keycloak:latest
