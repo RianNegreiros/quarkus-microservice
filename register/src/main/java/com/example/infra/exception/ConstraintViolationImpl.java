@@ -1,4 +1,4 @@
-package infra.exception;
+package com.example.infra.exception;
 
 import java.io.Serializable;
 import java.util.stream.Collectors;

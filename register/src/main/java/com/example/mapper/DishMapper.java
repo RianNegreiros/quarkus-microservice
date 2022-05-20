@@ -1,4 +1,4 @@
-package mapper;
+package com.example.mapper;
 
 import dto.DishDTO;
 import entities.Dish;

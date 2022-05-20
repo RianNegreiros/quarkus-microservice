@@ -1,4 +1,4 @@
-package controllers;
+package com.example.controllers;
 
 import dto.DishDTO;
 import entities.Dish;

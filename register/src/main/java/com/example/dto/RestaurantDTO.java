@@ -1,4 +1,4 @@
-package dto;
+package com.example.dto;
 
 import entities.Restaurant;
 import infra.dto.DTO;

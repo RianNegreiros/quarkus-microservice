@@ -1,4 +1,4 @@
-package infra.dto;
+package com.example.infra.dto;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = { ValidDTOValidator.class })
 public @interface ValidDTO {
 
-    String message() default "{infra.ValidDTO.message}";
+    String message() default "{com.example.infra.ValidDTO.message}";
 
     Class<?>[] groups() default {};
 

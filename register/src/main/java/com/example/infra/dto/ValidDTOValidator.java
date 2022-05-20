@@ -1,4 +1,4 @@
-package infra.dto;
+package com.example.infra.dto;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

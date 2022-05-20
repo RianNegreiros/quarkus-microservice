@@ -1,4 +1,4 @@
-package infra.exception;
+package com.example.infra.exception;
 
 import javax.validation.ConstraintViolationException;
 import javax.ws.rs.core.Response;
