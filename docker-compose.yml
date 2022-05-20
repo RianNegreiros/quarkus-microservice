@@ -45,3 +45,10 @@ services:
     container_name: grafana_delivery
     image: grafana/grafana:latest
     network_mode: "host"
+  artemis_delivery:
+    container_name: artemis_delivery
+    image: artemis-adoptopenjdk-11:latest
+    network_mode: "host"
+    environment:
+      ARTEMIS_USER: admin
+      ARTEMIS_PASSWORD: admin
