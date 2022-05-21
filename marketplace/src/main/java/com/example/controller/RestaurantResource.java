@@ -21,11 +21,6 @@ public class RestaurantResource {
     PgPool pgPool;
 
     @GET
-    public Multi<RestaurantDTO> searchRestaurants() {
-        return Restaurant.findAll(pgPool);
-    }
-
-    @GET
     @Path("{idRestaurant}/dishes")
     public Multi<DishDTO> searchDishes(@PathParam("idRestaurant") Long idRestaurant) {
         return Dish.findAll(pgPool, idRestaurant);

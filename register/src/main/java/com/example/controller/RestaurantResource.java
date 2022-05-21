@@ -12,6 +12,7 @@ import org.eclipse.microprofile.openapi.annotations.security.OAuthFlow;
 import org.eclipse.microprofile.openapi.annotations.security.OAuthFlows;
 import org.eclipse.microprofile.openapi.annotations.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
+import org.eclipse.microprofile.reactive.messaging.Emitter;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
@@ -33,6 +34,10 @@ public class RestaurantResource {
     @Inject
     RestaurantMapper restaurantMapper;
 
+    @Inject
+    @Channel("restaurants")
+    Emitter<String> emmiter;
+
     @GET
     public List<Restaurant> search() {
         return Restaurant.listAll();
@@ -45,6 +50,11 @@ public class RestaurantResource {
     public Response add(RestaurantDTO dto) {
         Restaurant restaurant = restaurantMapper.toRestaurant(dto);
         restaurant.persist();
+
+        Jsonb create = JsonBuilder.create();
+        String json = create.toJson(restaurant);
+
+        emmiter.send(json);
         return Response.status(Response.Status.CREATED).build();
     }
 
