@@ -52,3 +52,57 @@ services:
     environment:
       ARTEMIS_USER: admin
       ARTEMIS_PASSWORD: admin
+  mongodb_delivery:
+    container_name: mongodb_delivery
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+  zookeeper:
+    container_name: zookeeper_container
+    image: zookeeper:latest
+    ports:
+      - "2181:2181"
+      - "2888:2888"
+      - "3888:3888"
+  kafka:
+    container_name: kafka_container
+    image: bitnami/kafka:latest
+    ports:
+      - "9092:9092"
+    links:
+      - zookeeper
+    environment:
+      - ZOOKEEPER_CONNECT=zookeeper:2181
+  kafdrop:
+    container_name: kafdrop_container
+    image: obsidiandynamics/kafdrop:latest
+    environment:
+      KAFKA_BROKERCONNECT: kafka:9092
+    ports:
+      - "9000:9000"
+    depends_on:
+      - kafka
+  elastic:
+    container_name: elaticsearch
+    image: elasticsearch:7.17.3
+    network_mode: "host"
+    environment:
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - cluster.initial_master_nodes=es01
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  kibana:
+    container_name: kibana
+    image: kibana:7.17.3
+    network_mode: "host"
+    environment:
+      ELASTICSEARCH_HOSTS: http://localhost:9200
