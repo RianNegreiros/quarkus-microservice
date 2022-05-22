@@ -1,13 +1,14 @@
 package com.example.message;
 
+import com.example.entity.Restaurant;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 
-import org.eclipse.microprofile.reactive.messaging.Incoming;
-
 import io.vertx.mutiny.pgclient.PgPool;
+import org.eclipse.microprofile.reactive.messaging.Incoming;
 
 @ApplicationScoped
 public class RegisteredRestaurant {
