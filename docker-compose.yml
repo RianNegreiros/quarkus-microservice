@@ -106,3 +106,13 @@ services:
     network_mode: "host"
     environment:
       ELASTICSEARCH_HOSTS: http://localhost:9200
+
+  logstash:
+    container_name: logstash
+    image: logstash:7.17.3
+    volumes:
+      - source: ./pipelines
+        target: /usr/share/logstash/pipeline
+    network_mode: "host"
+    depends_on:
+      - elastic
