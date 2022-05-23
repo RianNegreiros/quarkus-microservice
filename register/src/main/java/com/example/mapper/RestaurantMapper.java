@@ -1,7 +1,7 @@
 package com.example.mapper;
 
-import dto.RestaurantDTO;
-import entities.Restaurant;
+import com.example.dto.RestaurantDTO;
+import com.example.entity.Restaurant;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

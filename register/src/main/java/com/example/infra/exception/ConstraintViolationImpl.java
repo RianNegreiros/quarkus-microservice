@@ -10,9 +10,6 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 public class ConstraintViolationImpl implements Serializable {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
 
     @Schema(description = "Attribute path, ex: startDate, person.address.number", required = false)

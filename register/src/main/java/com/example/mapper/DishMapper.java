@@ -1,7 +1,7 @@
 package com.example.mapper;
 
-import dto.DishDTO;
-import entities.Dish;
+import com.example.dto.DishDTO;
+import com.example.entity.Dish;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

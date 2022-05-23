@@ -1,8 +1,8 @@
 package com.example.dto;
 
-import entities.Restaurant;
-import infra.dto.DTO;
-import infra.dto.ValidDTO;
+import com.example.entity.Restaurant;
+import com.example.infra.dto.DTO;
+import com.example.infra.dto.ValidDTO;
 
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.constraints.NotBlank;
@@ -11,9 +11,6 @@ import javax.validation.constraints.Size;
 
 @ValidDTO
 public class RestaurantDTO implements DTO {
-
-    @NotBlank
-    public String owner;
 
     @Pattern(regexp = "/^\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}-\\d{2}$/")
     @NotBlank

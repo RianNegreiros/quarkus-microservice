@@ -1,10 +1,10 @@
-package com.example.controllers;
+package com.example.controller;
 
-import dto.DishDTO;
-import entities.Dish;
-import entities.Restaurant;
-import mapper.DishMapper;
-import mapper.RestaurantMapper;
+import com.example.dto.DishDTO;
+import com.example.entity.Dish;
+import com.example.entity.Restaurant;
+import com.example.mapper.DishMapper;
+
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
